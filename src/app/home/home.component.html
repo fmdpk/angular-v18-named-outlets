@@ -1,0 +1,11 @@
+<h2>Items</h2>
+<ul>
+  <li *ngFor="let item of items">
+<!--    <a [routerLink]="['/', { outlets: { detail: ['item', item.id] } }]">{{ item.name }}</a>-->
+    <button (click)="openDetail(item.id)">{{item.name}}</button>
+  </li>
+</ul>
+
+<!--<router-outlet name="detail"></router-outlet> if detail is child of home component-->
+
+<button (click)="openSidebar()">Open Sidebar</button>
