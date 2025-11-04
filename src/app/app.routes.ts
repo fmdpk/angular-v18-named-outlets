@@ -9,11 +9,11 @@ export const routes: Routes = [
   //     { path: 'item/:id', component: ItemDetailComponent, outlet: 'detail' } // if the outlet is inside HomeComponent
   //   ]
   // },
-  { path: '', component: HomeComponent,
+  { path: '', loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
     // children: [
     //   { path: 'item/:id', component: ItemDetailComponent, outlet: 'detail' } // if the outlet is inside HomeComponent
     // ]
   },                     // primary outlet
-  { path: 'item/:id', component: ItemDetailComponent, outlet: 'detail' },
-  { path: 'sidebar', component: SidebarComponent, outlet: 'sidebar' }
+  { path: 'item/:id', loadComponent: () => import('./item-detail/item-detail.component').then(m => m.ItemDetailComponent), outlet: 'detail' },
+  { path: 'sidebar', loadComponent: () => import('./sidebar/sidebar.component').then(m => m.SidebarComponent), outlet: 'sidebar' }
 ];
